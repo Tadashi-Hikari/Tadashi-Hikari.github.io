@@ -1,1 +1,70 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirect Page</title>
+    <script>
+        function pingIP(ip, callback) {
+            var img = new Image();
+            img.onload = function() { callback(true); };
+            img.onerror = function() { callback(false); };
+            img.src = "http://" + ip + "/ping.png?time=" + new Date().getTime();
+        }
+
+        function redirectToIP(ip) {
+            window.location.href = "http://" + ip;
+        }
+
+        window.onload = function() {
+            var targetIP = "<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirect Page</title>
+    <script>
+        function pingIP(ip, callback) {
+            var img = new Image();
+            img.onload = function() { callback(true); };
+            img.onerror = function() { callback(false); };
+            img.src = "http://" + ip + "/ping.png?time=" + new Date().getTime();
+        }
+
+        function redirectToIP(ip) {
+            window.location.href = "http://" + ip;
+        }
+
+        window.onload = function() {
+            var targetIP = "73.13.20.180"; // Replace with your target IP
+            pingIP(targetIP, function(isAvailable) {
+                if (isAvailable) {
+                    redirectToIP(targetIP);
+                } else {
+                    console.log("Target IP is not available.");
+                }
+            });
+        };
+    </script>
+</head>
+<body>
+    <h1>Checking availability...</h1>
+</body>
+</html>
+"; // Replace with your target IP
+            pingIP(targetIP, function(isAvailable) {
+                if (isAvailable) {
+                    redirectToIP(targetIP);
+                } else {
+                    //Replace with "Store Closed"image 
+                    console.log("Target IP is not available.");
+                }
+            });
+        };
+    </script>
+</head>
+<body>
+    <h1>Checking availability...</h1>
+</body>
+</html>
